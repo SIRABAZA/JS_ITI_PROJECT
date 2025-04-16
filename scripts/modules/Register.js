@@ -30,12 +30,26 @@ function isValidName(name) {
   const pattern = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
   return pattern.test(name);
 }
-
 function isValidEmail(email) {
-  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const pattern = /^[^@]+@[^@]+\.[^@]+$/;
   return pattern.test(email);
 }
+async function validateEmail(email) {
+  if (!email.trim()) {
+    return { valid: false, message: "Please enter your email" };
+  }
 
+  if (!isValidEmail(email)) {
+    return { valid: false, message: "Please enter a valid email address" };
+  }
+
+  const emailExists = await isEmailRegistered(email);
+  if (emailExists) {
+    return { valid: false, message: "This email is already registered" };
+  }
+
+  return { valid: true };
+}
 function isValidPassword(password) {
   const pattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -64,7 +78,7 @@ function validateForm() {
   if (!emailInput.value.trim()) {
     createErrorMessage(emailInput, "Please enter your email");
     isValid = false;
-  } else if (!isValidEmail(emailInput.value)) {
+  } else if (!emailInput.value) {
     createErrorMessage(emailInput, "Please enter a valid email address");
     isValid = false;
   } else {
@@ -112,40 +126,59 @@ function validateForm() {
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  if (validateForm()) {
-    // Create user object
-    const newUser = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      password: passwordInput.value, // Note: In production, hash this password
-      createdAt: new Date().toISOString(),
-      isActive: true,
-    };
+  // Validate form (synchronous checks)
+  if (!validateForm()) return;
 
-    try {
-      // Save the user to JSON Server
-      const savedUser = await saveUserToJsonServer(newUser);
+  // Additional async email validation
+  const emailValidation = await validateEmail(emailInput.value.trim());
+  if (!emailValidation.valid) {
+    createErrorMessage(emailInput, emailValidation.message);
+    return;
+  }
 
-      // Show success feedback
-      const successAlert = document.createElement("div");
-      successAlert.className = "alert alert-success mt-3";
-      successAlert.textContent = "User Created Successfully!";
-      form.parentNode.insertBefore(successAlert, form.nextSibling);
+  // Create user object
+  const newUser = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    password: passwordInput.value, // Note: In production, hash this password
+    createdAt: new Date().toISOString(),
+    isActive: true,
+  };
 
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        form.reset();
-        successAlert.remove();
-      }, 2000);
+  try {
+    // Save the user to JSON Server
+    const savedUser = await saveUserToJsonServer(newUser);
 
-      console.log("User saved:", savedUser);
-    } catch (error) {
-      console.error("Error saving user:", error);
-      createErrorMessage(form, "Failed to save user. Please try again.");
-    }
+    // Show success feedback
+    const successAlert = document.createElement("div");
+    successAlert.className = "alert alert-success mt-3";
+    successAlert.textContent = "User Created Successfully!";
+    form.parentNode.insertBefore(successAlert, form.nextSibling);
+
+    // Reset form after 2 seconds
+    setTimeout(() => {
+      form.reset();
+      successAlert.remove();
+    }, 2000);
+  } catch (error) {
+    console.error("Error saving user:", error);
+    createErrorMessage(form, "Failed to save user. Please try again.");
   }
 });
+async function isEmailRegistered(email) {
+  try {
+    const response = await fetch(
+      `http://localhost:3001/users?email=${encodeURIComponent(email)}`
+    );
+    if (!response.ok) throw new Error("Network response was not ok");
 
+    const users = await response.json();
+    return users.length > 0; // Returns true if email exists
+  } catch (error) {
+    console.error("Error checking email:", error);
+    return false; // Assume email is available if there's an error
+  }
+}
 async function saveUserToJsonServer(newUser) {
   try {
     const response = await fetch(API_URL, {
@@ -159,8 +192,11 @@ async function saveUserToJsonServer(newUser) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    return await response.json();
+    if (isEmailRegistered(newUser.email)) {
+      createErrorMessage(emailInput, "Email Is Already Excist");
+    } else {
+      return await response.json();
+    }
   } catch (error) {
     console.error("Error saving user:", error);
     throw error;
