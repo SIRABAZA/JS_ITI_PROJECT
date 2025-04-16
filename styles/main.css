@@ -1,9 +1,11 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
 /* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Satoshi", sans-serif;
 }
 
 body {
@@ -52,7 +54,9 @@ body {
   text-decoration: none;
   white-space: nowrap;
 }
-
+.custom-navbar-brand img {
+  display: flex;
+}
 .custom-navbar-nav {
   display: flex;
   flex-direction: row;
@@ -76,7 +80,7 @@ body {
 
 .custom-nav-link:hover,
 .custom-nav-link:focus {
-  color: #0d6efd;
+  color: #000000;
 }
 
 .custom-nav-link.custom-active {
@@ -241,6 +245,9 @@ body {
 
 /* Responsive styles */
 @media (max-width: 991.98px) {
+  .custom-navbar-brand {
+    width: 80%;
+  }
   .custom-navbar-collapse {
     width: 100%;
     display: none;
@@ -302,14 +309,14 @@ body {
   -o-border-radius: 5px;
 }
 .cart__btn {
-  border-color: #09c;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  border-color: #000000;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
-.cart__btn:hover {
+.cart__btn i:hover {
   color: white;
 }
 .slider-container {
@@ -442,9 +449,15 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .svg-login {
+    height: 75%;
+  }
+  #btnSubmitRegisterForm {
+    width: 100%;
+  }
   .slider-container {
-    height: 400px;
-    width: 90%;
+    height: 90vh;
+    width: 100%;
   }
 
   .slide-content h2 {
@@ -456,6 +469,7 @@ body {
   }
 
   .arrow {
+    display: none;
     width: 40px;
     height: 40px;
   }
@@ -479,4 +493,97 @@ body {
     height: 35px;
     font-size: 1.2rem;
   }
+}
+.branding__sec {
+  background-color: white;
+}
+.img__Container {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 250px;
+}
+.product__price {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
+}
+.product__before__discount {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.card-title {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+.wishList_btn:hover {
+  background-color: #000000;
+  color: white;
+}
+.wishList_btn i:hover {
+  color: white;
+}
+.add-to-cart-btn {
+  border-radius: 62px;
+  -webkit-border-radius: 62px;
+  -moz-border-radius: 62px;
+  -ms-border-radius: 62px;
+  -o-border-radius: 62px;
+}
+.add-to-cart-btn:hover {
+  background-color: white;
+  border-color: #000000;
+  color: #000000;
+}
+.product_card {
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.product_card:hover {
+  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+  -moz-transform: scale(1.025);
+  -ms-transform: scale(1.025);
+  -o-transform: scale(1.025);
+}
+.nav-btns {
+  color: white;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.nav-btns:hover {
+  background-color: white;
+  border-color: black;
+  color: black;
+}
+.Register__form {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.Login__form {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

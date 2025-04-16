@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/users";
+const API_URL = "http://localhost:3000/users";
 
 const nameInput = document.getElementById("exampleInputName");
 const emailInput = document.getElementById("exampleInputEmail");
@@ -6,6 +6,12 @@ const passwordInput = document.getElementById("exampleInputPassword");
 const confirmInput = document.getElementById("exampleInputConfirmPassword");
 const form = document.getElementById("myForm");
 
+window.onload = function () {
+  let sessionUser = sessionStorage.getItem("currentUser");
+  if (JSON.parse(sessionUser) != null) {
+    window.location.href("./Login.html");
+  }
+};
 function createErrorMessage(inputElement, message) {
   // Clear any existing error first
   clearValidation(inputElement);
@@ -140,7 +146,7 @@ form.addEventListener("submit", async function (e) {
   const newUser = {
     name: nameInput.value.trim(),
     email: emailInput.value.trim(),
-    password: passwordInput.value, // Note: In production, hash this password
+    password: passwordInput.value,
     createdAt: new Date().toISOString(),
     isActive: true,
   };
@@ -160,6 +166,7 @@ form.addEventListener("submit", async function (e) {
       form.reset();
       successAlert.remove();
     }, 2000);
+    window.location.href = "../Pages/Login.html";
   } catch (error) {
     console.error("Error saving user:", error);
     createErrorMessage(form, "Failed to save user. Please try again.");
@@ -168,7 +175,7 @@ form.addEventListener("submit", async function (e) {
 async function isEmailRegistered(email) {
   try {
     const response = await fetch(
-      `http://localhost:3001/users?email=${encodeURIComponent(email)}`
+      `http://localhost:3000/users?email=${encodeURIComponent(email)}`
     );
     if (!response.ok) throw new Error("Network response was not ok");
 
@@ -208,31 +215,5 @@ async function saveUserToJsonServer(newUser) {
 // Get all users
 async function getUsers() {
   const response = await fetch(API_URL);
-  return await response.json();
-}
-
-// Get single user
-async function getUser(id) {
-  const response = await fetch(`${API_URL}/${id}`);
-  return await response.json();
-}
-
-// Update user
-async function updateUser(id, updates) {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updates),
-  });
-  return await response.json();
-}
-
-// Delete user
-async function deleteUser(id) {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
   return await response.json();
 }

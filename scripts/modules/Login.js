@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Login API URL
-  const API_URL = "http://localhost:3001/users";
+  const API_URL = "http://localhost:3000/users";
 
   // Login function
   async function loginUser(email, password) {

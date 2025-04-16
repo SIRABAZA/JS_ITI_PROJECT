@@ -28,7 +28,7 @@
     <nav class="custom-navbar">
       <div class="custom-container">
         <a href="#" class="custom-navbar-brand">
-          <span>Univeida</span>
+          <img src="./assets/1.png" alt="" class="w-25" />
         </a>
 
         <button class="custom-navbar-toggler" aria-label="Toggle navigation">
@@ -36,30 +36,31 @@
         </button>
 
         <div class="custom-navbar-collapse">
-          <ul class="custom-navbar-nav">
+          <ul class="custom-navbar-nav" id="custom-navbar-nav">
             <li class="custom-nav-item">
               <a href="./index.html" class="custom-nav-link">Home</a>
             </li>
             <li class="custom-nav-item">
               <a href="./pages/Contact.html" class="custom-nav-link">Contact</a>
             </li>
-            <li class="custom-nav-item">
+            <li class="custom-nav-item" id="loginBtn">
               <a
                 href="./pages/Login.html"
-                class="custom-nav-link btn btn-primary text-white"
+                class="custom-nav-link btn btn-dark nav-btns"
                 >Login</a
               >
             </li>
-            <li class="custom-nav-item">
+            <li class="custom-nav-item" id="registerBtn">
               <a
                 href="./pages/Register.html"
-                class="custom-nav-link btn btn-primary text-white"
+                class="custom-nav-link btn btn-dark nav-btns"
                 >Register</a
               >
             </li>
-            <li class="custom-nav-item">
+            <li class="custom-nav-item" id="signOutDropDown"></li>
+            <li>
               <button
-                class="btn btn-outline-primary text-primary py-2 px-3 cart__btn"
+                class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
               >
                 <i class="fa-solid fa-cart-shopping"></i>
               </button>
@@ -73,7 +74,7 @@
       <div class="slider">
         <div class="slide active">
           <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000"
+            src="https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Beach"
           />
           <div class="slide-content">
@@ -83,7 +84,7 @@
         </div>
         <div class="slide">
           <img
-            src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=1000"
+            src="https://images.pexels.com/photos/1884583/pexels-photo-1884583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Mountains"
           />
           <div class="slide-content">
@@ -93,7 +94,7 @@
         </div>
         <div class="slide">
           <img
-            src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1000"
+            src="https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Forest"
           />
           <div class="slide-content">
@@ -103,7 +104,7 @@
         </div>
         <div class="slide">
           <img
-            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000"
+            src="https://images.pexels.com/photos/8306388/pexels-photo-8306388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="City"
           />
           <div class="slide-content">
@@ -118,40 +119,114 @@
 
       <div class="dots-container"></div>
     </div>
-
-    <div class="container my-5">
-      <div class="row">
-        <div class="col-12 text-center my-3">
-          <h2>Our Products</h2>
+    <div class="container-fluid branding__sec">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-3 col-md-6 col-6 py-3 text-center">
+          <img
+            src="https://cdn.worldvectorlogo.com/logos/zara-logo-1.svg"
+            alt=""
+            class="w-25"
+          />
         </div>
-        <di class="col-12 align-items-center">
-          <div class="row ">
-            <div class="col-5">
-              <div class="mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Price"
-                />
-              </div>
+        <div class="col-lg-3 col-md-6 col-6 py-3 text-center">
+          <img
+            src="https://cdn.worldvectorlogo.com/logos/zara-logo-1.svg"
+            alt=""
+            class="w-25"
+          />
+        </div>
+        <div class="col-lg-3 col-md-6 col-6 py-3 text-center">
+          <img
+            src="https://cdn.worldvectorlogo.com/logos/zara-logo-1.svg"
+            alt=""
+            class="w-25"
+          />
+        </div>
+        <div class="col-lg-3 col-md-6 col-6 py-3 text-center">
+          <img
+            src="https://cdn.worldvectorlogo.com/logos/zara-logo-1.svg"
+            alt=""
+            class="w-25"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="products__section container my-4">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
+          <div class="card product_card shadow-lg">
+            <div class="img__Container overflow-hidden h-100">
+              <img
+                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
+                class="card-img-top"
+                alt="Trouser"
+              />
             </div>
-            <div class="col-5">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Size"
-                />
+            <div class="card-body">
+              <h5 class="card-title">Slim Fit Jeans</h5>
+              <div class="d-flex justify-content-between">
+                <p class="product__price card-text fw-semibold">$50</p>
+                <del
+                  class="product__before__discount card-text fw-normal text-danger"
+                  >$120</del
+                >
               </div>
-            </div>
-            <div class="col-2">
-              <button class="btn btn-primary">filter</button>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <button
+                    href="#"
+                    class="btn btn-dark text-center add-to-cart-btn p-2"
+                  >
+                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </div>
+                <div class="">
+                  <button
+                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
+                  >
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </di>
+        </div>
       </div>
+    </div>
+    <div class="container footer-section">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <p class="col-md-4 mb-0 text-muted">© 2025 Univeida, Inc</p>
+
+        <a
+          href="/"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+      </footer>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
