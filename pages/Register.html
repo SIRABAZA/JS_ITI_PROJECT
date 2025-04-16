@@ -28,7 +28,7 @@
     <nav class="custom-navbar">
       <div class="custom-container">
         <a href="#" class="custom-navbar-brand">
-          <img src="../assets/1.png" alt="" class="w-25" />
+          <img src="./assets/1.png" alt="" class="w-25" />
         </a>
 
         <button class="custom-navbar-toggler" aria-label="Toggle navigation">
@@ -38,13 +38,15 @@
         <div class="custom-navbar-collapse">
           <ul class="custom-navbar-nav" id="custom-navbar-nav">
             <li class="custom-nav-item">
-              <a href="../index.html" class="custom-nav-link">Home</a>
+              <a href="./index.html" class="custom-nav-link">Home</a>
             </li>
             <li class="custom-nav-item">
-              <a href="Contact.html" class="custom-nav-link">Contact</a>
+              <a href="./pages/Contact.html" class="custom-nav-link">Contact</a>
             </li>
             <li class="custom-nav-item" id="loginBtn">
-              <a href="Login.html" class="custom-nav-link btn btn-dark nav-btns"
+              <a
+                href="./pages/Login.html"
+                class="custom-nav-link btn btn-dark nav-btns"
                 >Login</a
               >
             </li>
@@ -55,13 +57,15 @@
                 >Register</a
               >
             </li>
-            <li class="custom-nav-item" id="signOutDropDown"></li>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+                          <li class="custom-nav-item" id="signOutDropDown"></li>
             <li>
               <button
                 class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
               >
                 <i class="fa-solid fa-cart-shopping"></i>
               </button>
+            </div>
             </li>
           </ul>
         </div>
@@ -72,6 +76,8 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="w-100 m-auto border p-3 shadow-sm Register__form">
+            <h3 class="text-center mb-3">Register</h3>
+
             <div class="row">
               <div class="col-md-12 col-lg-6 mb-3">
                 <svg

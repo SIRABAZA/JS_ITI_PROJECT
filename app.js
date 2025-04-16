@@ -9,7 +9,7 @@ function checkIfUserLoggedIn() {
     loginBtn.remove();
     signOutDropDown.innerHTML = `<div class="dropdown">
                 <a
-                  class="btn btn-primary dropdown-toggle"
+                  class="btn btn-dark dropdown-toggle btn-user-dropdown"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -18,10 +18,12 @@ function checkIfUserLoggedIn() {
                   <i class="fa-solid fa-user"></i>
                 </a>
 
-                <ul class="dropdown-menu">
-                  <li class="px-2">Hello ${JSON.parse(sessionUser).name}</li>
-                  <li class="px-2">
-                    <button class="btn btn-danger w-100" id="signOutBtn">Sign Out</button>
+                <ul class="dropdown-menu p-3">
+                  <li class="px-2 pb-3">Hello ${
+                    JSON.parse(sessionUser).name
+                  }</li>
+                  <li class="">
+                    <button class="btn btn-dark btn-user-dropdown w-100 py-2 px-3" id="signOutBtn">Sign Out</button>
                   </li>
                 </ul>
               </div>`;

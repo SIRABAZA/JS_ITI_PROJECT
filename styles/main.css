@@ -78,6 +78,21 @@ body {
   transition: color 0.15s ease-in-out;
 }
 
+.btn-user-dropdown {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.btn-user-dropdown:hover {
+  color: #000000;
+  background-color: white;
+  border-color: #000000;
+  i {
+    color: #000000;
+  }
+}
 .custom-nav-link:hover,
 .custom-nav-link:focus {
   color: #000000;
@@ -316,8 +331,10 @@ body {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-.cart__btn i:hover {
-  color: white;
+.cart__btn:hover {
+  i {
+    color: white;
+  }
 }
 .slider-container {
   margin: auto;
@@ -528,7 +545,9 @@ body {
 }
 .wishList_btn:hover {
   background-color: #000000;
-  color: white;
+  i {
+    color: white;
+  }
 }
 .wishList_btn i:hover {
   color: white;
@@ -546,6 +565,7 @@ body {
   color: #000000;
 }
 .product_card {
+  cursor: pointer;
   transition: transform 0.3s ease;
   border-radius: 20px;
   -webkit-border-radius: 20px;
