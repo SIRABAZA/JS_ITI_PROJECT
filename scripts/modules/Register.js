@@ -5,6 +5,7 @@ const emailInput = document.getElementById("exampleInputEmail");
 const passwordInput = document.getElementById("exampleInputPassword");
 const confirmInput = document.getElementById("exampleInputConfirmPassword");
 const form = document.getElementById("myForm");
+console.log(typeof loginUser);
 
 window.onload = function () {
   let sessionUser = sessionStorage.getItem("currentUser");

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Navbar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <nav class="custom-navbar">
+      <div class="custom-container">
+        <a href="#" class="custom-navbar-brand">
+          <img src="../assets/1.png" alt="" class="w-25" />
+        </a>
+
+        <button class="custom-navbar-toggler" aria-label="Toggle navigation">
+          <span class="custom-navbar-toggler-icon"></span>
+        </button>
+
+        <div class="custom-navbar-collapse">
+          <ul class="custom-navbar-nav" id="custom-navbar-nav">
+            <li class="custom-nav-item">
+              <a href="../index.html" class="custom-nav-link">Home</a>
+            </li>
+            <li class="custom-nav-item">
+              <a href="Contact.html" class="custom-nav-link">Contact</a>
+            </li>
+            <li class="custom-nav-item" id="loginBtn">
+              <a href="Login.html" class="custom-nav-link btn btn-dark nav-btns"
+                >Login</a
+              >
+            </li>
+            <li class="custom-nav-item" id="registerBtn">
+              <a
+                href="Register.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Register</a
+              >
+            </li>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <li class="custom-nav-item" id="signOutDropDown"></li>
+              <li>
+                <button
+                  class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container my-3" id="productContainer">
+      <div class="row" aria-hidden="true">
+        <div class="col-md-12 col-lg-6 placeholder-glow">
+          <div class="slider-container productPhotos placeholder">
+            <div class="slider">
+              <div class="slide active"></div>
+              <div class="slide"></div>
+              <div class="slide"></div>
+            </div>
+
+            <button class="arrow prev-button">&#10094;</button>
+            <button class="arrow next-button">&#10095;</button>
+
+            <div class="dots-container"></div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6 bg-white p-3">
+          <div
+            class="d-flex justify-content-between align-items-center placeholder-glow"
+          >
+            <span class="placeholder col-1"></span>
+            <div>
+              <button
+                class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
+              >
+                <i class="fa-solid fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="NameContainer d-flex justify-content-between placeholder-glow"
+          >
+            <h2 class="placeholder col-4"></h2>
+          </div>
+          <div class="priceContainer">
+            <div class="d-flex justify-content-start gap-4 placeholder-glow">
+              <p class="product__price card-text fw-semibold placeholder">
+                $49.99
+              </p>
+              <del
+                class="product__before__discount card-text fw-normal text-danger placeholder"
+              >
+              </del
+              >`
+            </div>
+          </div>
+          <div class="colorsContainer mb-3 placeholder-glow">
+            <h5 class="placeholder col-4">Colors</h5>
+            <div
+              class="d-flex justify-content-start align-items-center gap-2 placeholder-glow"
+            >
+              <div class="colors placeholder"></div>
+              <div class="colors placeholder"></div>
+              <div class="colors placeholder"></div>
+            </div>
+          </div>
+
+          <div class="SelectSizeContainer my-3">
+            <div class="w-50 selectSize placeholder-glow">
+              <div class="col-md placeholder col-6">
+                <div class="form-floating"></div>
+              </div>
+            </div>
+          </div>
+          <div class="btnAndIncrement my-3">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div
+                class="col-md-6 col-sm-12 addToCartCounainer placeholder-glow"
+              >
+                <button
+                  href="#"
+                  class="btn addToCart text-center viewProductBtn placeholder col-1"
+                >
+                  Add To Cart
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+              <div class="placeholder-glow col-md-6 col-sm-12">
+                <div
+                  class="col-md-6 col-sm-12 d-flex justify-content-between align-items-center incDecSection placeholder"
+                >
+                  <div class="btnQuantity placeholder-glow">
+                    <button
+                      class="btn incDecBtns btnChildQuan rounded-circle placeholder"
+                      id="btnDecrementProductPage"
+                    >
+                      -
+                    </button>
+                  </div>
+                  <div class="placeholder-glow">
+                    <span id="Quatity placeholder"></span>
+                  </div>
+                  <div class="btnQuantity placeholder-glow">
+                    <button
+                      class="btn incDecBtns btnChildQuan rounded-circle placeholder"
+                      id="btnIncrementProductPage"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="productDiscription placeholder-glow">
+            <p class="placeholder">
+              Stylish slim-fit trousers with stretch fabric for all-day comfort.
+            </p>
+          </div>
+          <div class="placeholder-glow">
+            <div
+              class="stockLeft text-white text-center placeholder-glow col-12"
+            >
+              <p class="placeholder">Only 2 Pieces Left In Stock Hurry Up!!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container footer-section">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <p class="col-md-4 mb-0 text-muted">© 2025 Univeida, Inc</p>
+
+        <a
+          href="/"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../scripts/modules/slider.js"></script>
+    <script src="../scripts/modules/util.js"></script>
+    <script src="../scripts/modules/Product.js" type="module"></script>
+  </body>
+</html>

@@ -93,6 +93,109 @@
       "password": "21319610Mm**",
       "createdAt": "2025-04-16T13:17:38.706Z",
       "isActive": true
+    },
+    {
+      "id": "9ae4",
+      "name": "omar",
+      "email": "aliASASAS@x.com",
+      "password": "21319610mM**",
+      "createdAt": "2025-04-17T06:54:34.905Z",
+      "isActive": true
+    },
+    {
+      "id": "ca6f",
+      "name": "omar",
+      "email": "sacsacas@x.com",
+      "password": "21319610Mm**",
+      "createdAt": "2025-04-17T18:12:17.605Z",
+      "isActive": true
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "title": "Premium Cotton T-Shirt",
+      "description": "Soft 100% cotton t-shirt with a comfortable fit. Perfect for casual wear.",
+      "category": "tshirts",
+      "price": 29.99,
+      "priceBeforeDiscount": 39.99,
+      "images": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27"
+      ],
+      "colors": ["#FFFFFF", "#000000", "#1E3A8A"],
+      "sizes": ["S", "M", "XL"],
+      "rating": 4.5,
+      "stock": 42
+    },
+    {
+      "id": "p2",
+      "title": "Slim Fit Chino Trousers",
+      "description": "Stylish slim-fit trousers with stretch fabric for all-day comfort.",
+      "category": "trousers",
+      "price": 59.99,
+      "priceBeforeDiscount": 79.99,
+      "images": [
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
+        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
+        "https://images.unsplash.com/photo-1542272604-787c3835535d"
+      ],
+      "colors": ["#D2B48C", "#808080", "#000000"],
+      "sizes": ["M", "L", "XL"],
+      "rating": 4.2,
+      "stock": 35
+    },
+    {
+      "id": "p3",
+      "title": "Classic Oxford Shirt",
+      "description": "Formal oxford shirt with button-down collar. Ideal for business casual.",
+      "category": "shirts",
+      "price": 49.99,
+      "priceBeforeDiscount": 64.99,
+      "images": [
+        "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633",
+        "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
+        "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+      ],
+      "colors": ["#FFFFFF", "#3B82F6", "#F59E0B"],
+      "sizes": ["S", "M", "L", "XL"],
+      "rating": 4.7,
+      "stock": 28
+    },
+    {
+      "id": "p4",
+      "title": "Graphic Print T-Shirt",
+      "description": "Trendy t-shirt with artistic graphic print. 100% organic cotton.",
+      "category": "tshirts",
+      "price": 34.99,
+      "priceBeforeDiscount": 44.99,
+      "images": [
+        "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27",
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+      ],
+      "colors": ["#EF4444", "#10B981", "#7C3AED"],
+      "sizes": ["S", "M", "L", "XL"],
+      "rating": 4.3,
+      "stock": 50
+    },
+    {
+      "id": "p5",
+      "title": "Linen Casual Shirt",
+      "description": "Breathable linen shirt perfect for summer. Relaxed fit style.",
+      "category": "shirts",
+      "price": 54.99,
+      "priceBeforeDiscount": 69.99,
+      "images": [
+        "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
+        "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633",
+        "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+      ],
+      "colors": ["#FDE68A", "#A7F3D0", "#BFDBFE"],
+      "sizes": ["S", "M", "L", "XL"],
+      "rating": 4.6,
+      "stock": 22
     }
   ]
 }

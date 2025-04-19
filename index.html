@@ -41,6 +41,11 @@
               <a href="./index.html" class="custom-nav-link">Home</a>
             </li>
             <li class="custom-nav-item">
+              <a href="./pages/Products.html" class="custom-nav-link"
+                >Products</a
+              >
+            </li>
+            <li class="custom-nav-item">
               <a href="./pages/Contact.html" class="custom-nav-link">Contact</a>
             </li>
             <li class="custom-nav-item" id="loginBtn">
@@ -58,15 +63,15 @@
               >
             </li>
             <div class="d-flex justify-content-center align-items-center gap-2">
-                          <li class="custom-nav-item" id="signOutDropDown"></li>
-            <li>
-              <button
-                class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
-              >
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
+              <li class="custom-nav-item" id="signOutDropDown"></li>
+              <li>
+                <button
+                  class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </li>
             </div>
-            </li>
           </ul>
         </div>
       </div>
@@ -155,274 +160,92 @@
     </div>
     <div class="products__section container my-4">
       <div class="row">
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div class="col-lg-3 col-sm-12 p-3 border border category__check">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="checkDefault"
+            />
+            <label class="form-check-label" for="checkDefault">
+              Default checkbox
+            </label>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
+        <div class="col-lg-9 col-sm-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6 align-items-center">
+                  <label for="priceInput" class="form-label">Price</label>
+                  <input
+                    type="text"
+                    id="priceInput"
+                    class="form-control"
+                    placeholder="please Enter your Price"
+                  />
                 </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
+                <div class="col-6">
+                  <label for="sizeInput" class="form-label">Size</label>
+                  <input
+                    type="text"
+                    id="sizeInput"
+                    class="form-control"
+                    placeholder="please Enter your size like : M, S, L, XL"
+                  />
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
+            <div class="col-12">
+              <div class="row" id="products-container">
+                <div class="col-md-4 col-sm-6 col-xl-3 my-3">
+                  <div
+                    class="card product_card shadow-lg h-100 product"
+                    data-id="p1"
                   >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-lg-3 my-3">
-          <div class="card product_card shadow-lg">
-            <div class="img__Container overflow-hidden h-100">
-              <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-                class="card-img-top"
-                alt="Trouser"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Slim Fit Jeans</h5>
-              <div class="d-flex justify-content-between">
-                <p class="product__price card-text fw-semibold">$50</p>
-                <del
-                  class="product__before__discount card-text fw-normal text-danger"
-                  >$120</del
-                >
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button
-                    href="#"
-                    class="btn btn-dark text-center add-to-cart-btn p-2"
-                  >
-                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-                <div class="">
-                  <button
-                    class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-                  >
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
+                    <div class="img__Container">
+                      <img
+                        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+                        class="card-img-top"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Tshirt</h5>
+                      <div class="d-flex justify-content-between">
+                        <p class="product__price card-text fw-semibold">
+                          48.20
+                        </p>
+                        <del
+                          class="product__before__discount card-text fw-normal text-danger"
+                        >
+                          50.00</del
+                        >
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <button
+                            href="#"
+                            class="btn btn-dark text-center p-2 viewProductBtn"
+                            id="viewProductBtn"
+                            data-id="p1"
+                          >
+                            View Product
+                          </button>
+                        </div>
+                        <div class="">
+                          <button
+                            class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
+                          >
+                            <i class="fa-solid fa-heart"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
