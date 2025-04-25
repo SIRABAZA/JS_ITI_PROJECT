@@ -4,7 +4,11 @@
       "id": "1",
       "name": "Omar Khaled",
       "email": "omar@example.com",
-      "password": "test1234"
+      "password": "test1234",
+      "createdAt": "2025-04-15T20:07:28.338Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
     },
     {
       "id": "2db2",
@@ -12,103 +16,79 @@
       "email": "ali@x.com",
       "password": "123",
       "createdAt": "2025-04-15T20:07:28.338Z",
-      "isActive": true
+      "isActive": true,
+      "cart": [
+        {
+          "id": "p2",
+          "title": "Slim Fit Chino Trousers",
+          "category": "trousers",
+          "price": 59.99,
+          "priceBeforeDiscount": 79.99,
+          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
+          "size": "S",
+          "quantity": 4
+        },
+        {
+          "id": "p4",
+          "title": "Graphic Print T-Shirt",
+          "category": "tshirts",
+          "price": 34.99,
+          "priceBeforeDiscount": 44.99,
+          "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+          "size": "L",
+          "quantity": 8
+        },
+        {
+          "id": "p5",
+          "title": "Linen Casual Shirt",
+          "category": "shirts",
+          "price": 54.99,
+          "priceBeforeDiscount": 69.99,
+          "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
+          "size": "M",
+          "quantity": 2
+        },
+        {
+          "id": "p4",
+          "title": "Graphic Print T-Shirt",
+          "category": "tshirts",
+          "price": 34.99,
+          "priceBeforeDiscount": 44.99,
+          "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+          "size": "XL",
+          "quantity": 4
+        },
+        {
+          "id": "p2",
+          "title": "Slim Fit Chino Trousers",
+          "category": "trousers",
+          "price": 59.99,
+          "priceBeforeDiscount": 79.99,
+          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
+          "size": "M",
+          "quantity": 3
+        }
+      ]
     },
     {
-      "id": "73ad",
-      "name": "omar",
-      "email": "asac@gmail.com",
+      "id": "436b",
+      "name": "sac",
+      "email": "ascas@gmail.com",
       "password": "21319610Mm**",
-      "createdAt": "2025-04-15T20:32:42.092Z",
-      "isActive": true
+      "createdAt": "2025-04-19T17:56:25.472Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
     },
     {
-      "id": "1404",
-      "name": "omar",
-      "email": "ali@xs.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T04:55:31.382Z",
-      "isActive": true
-    },
-    {
-      "id": "3610",
-      "name": "omar",
-      "email": "alias@x.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T06:53:28.612Z",
-      "isActive": true
-    },
-    {
-      "id": "4916",
-      "name": "omar",
-      "email": "asasali@x.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T06:59:05.804Z",
-      "isActive": true
-    },
-    {
-      "id": "f2fc",
-      "name": "omar",
-      "email": "ali@x.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T11:38:09.301Z",
-      "isActive": true
-    },
-    {
-      "id": "84e4",
+      "id": "a85b",
       "name": "omar",
       "email": "alasai@x.com",
       "password": "21319610Mm**",
-      "createdAt": "2025-04-16T11:39:03.029Z",
-      "isActive": true
-    },
-    {
-      "id": "7ce4",
-      "name": "sac",
-      "email": "asacas@gmail.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T13:12:35.748Z",
-      "isActive": true
-    },
-    {
-      "id": "2164",
-      "name": "omar",
-      "email": "omasasar@sak.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T13:13:37.493Z",
-      "isActive": true
-    },
-    {
-      "id": "80f5",
-      "name": "omar",
-      "email": "omasasasar@sak.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T13:16:10.763Z",
-      "isActive": true
-    },
-    {
-      "id": "a3f2",
-      "name": "omar",
-      "email": "aliasas@x.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-16T13:17:38.706Z",
-      "isActive": true
-    },
-    {
-      "id": "9ae4",
-      "name": "omar",
-      "email": "aliASASAS@x.com",
-      "password": "21319610mM**",
-      "createdAt": "2025-04-17T06:54:34.905Z",
-      "isActive": true
-    },
-    {
-      "id": "ca6f",
-      "name": "omar",
-      "email": "sacsacas@x.com",
-      "password": "21319610Mm**",
-      "createdAt": "2025-04-17T18:12:17.605Z",
-      "isActive": true
+      "createdAt": "2025-04-20T06:44:49.684Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
     }
   ],
   "products": [
@@ -124,8 +104,16 @@
         "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
         "https://images.unsplash.com/photo-1576566588028-4147f3842f27"
       ],
-      "colors": ["#FFFFFF", "#000000", "#1E3A8A"],
-      "sizes": ["S", "M", "XL"],
+      "colors": [
+        "#FFFFFF",
+        "#000000",
+        "#1E3A8A"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "XL"
+      ],
       "rating": 4.5,
       "stock": 42
     },
@@ -141,8 +129,16 @@
         "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
         "https://images.unsplash.com/photo-1542272604-787c3835535d"
       ],
-      "colors": ["#D2B48C", "#808080", "#000000"],
-      "sizes": ["M", "L", "XL"],
+      "colors": [
+        "#D2B48C",
+        "#808080",
+        "#000000"
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
       "rating": 4.2,
       "stock": 35
     },
@@ -158,8 +154,17 @@
         "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
         "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
       ],
-      "colors": ["#FFFFFF", "#3B82F6", "#F59E0B"],
-      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        "#FFFFFF",
+        "#3B82F6",
+        "#F59E0B"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "rating": 4.7,
       "stock": 28
     },
@@ -175,8 +180,17 @@
         "https://images.unsplash.com/photo-1576566588028-4147f3842f27",
         "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
       ],
-      "colors": ["#EF4444", "#10B981", "#7C3AED"],
-      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        "#EF4444",
+        "#10B981",
+        "#7C3AED"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "rating": 4.3,
       "stock": 50
     },
@@ -192,8 +206,17 @@
         "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633",
         "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
       ],
-      "colors": ["#FDE68A", "#A7F3D0", "#BFDBFE"],
-      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        "#FDE68A",
+        "#A7F3D0",
+        "#BFDBFE"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "rating": 4.6,
       "stock": 22
     }

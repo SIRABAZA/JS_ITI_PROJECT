@@ -1,15 +1,43 @@
-<div class="d-flex justify-content-between align-items-center">
-  <div>
-    <button href="#" class="btn btn-dark text-center add-to-cart-btn p-2">
-      Add To Cart
-      <i class="fa-solid fa-cart-shopping"></i>
-    </button>
+<div
+  class="row"
+  data-product-id="${uniqueId}"
+  data-original-id="${productToRender.id}"
+>
+  <div class="col-12 d-flex gap-2">
+    <div class="imgContainerCart rounded-4">
+      <img src="${productToRender.image}" alt="" />
+    </div>
+    <div class="productInfoCart w-100">
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="fw-bolder productName">${productToRender.title}</p>
+        <button class="trashBtn" data-unique-id="${uniqueId}">
+          <i class="fa-solid fa-trash-can text-danger"></i>
+        </button>
+      </div>
+      <p class="productSize">
+        Size: <span class="text-body-secondary">${productToRender.size}</span>
+      </p>
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <h5 class="productPrice">$${productToRender.price}</h5>
+        </div>
+        <div
+          class="IncDecCustom col-4 px-3 d-flex justify-content-between align-items-center"
+        >
+          <i
+            class="fa-solid fa-minus customIncDec decrease-btn"
+            data-unique-id="${uniqueId}"
+          ></i>
+          <p class="pt-3 quantity" data-unique-id="${uniqueId}">
+            ${productToRender.quantity}
+          </p>
+          <i
+            class="fa-solid fa-plus customIncDec increase-btn"
+            data-unique-id="${uniqueId}"
+          ></i>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="">
-    <button
-      class="btn wishList_btn text-dark rounded-circle p-2 d-flex justify-content-center align-items-center border-dark"
-    >
-      <i class="fa-solid fa-heart"></i>
-    </button>
-  </div>
+  <div class="hrLine m-auto my-4"></div>
 </div>

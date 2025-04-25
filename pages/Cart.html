@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Navbar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <nav class="custom-navbar">
+      <div class="custom-container">
+        <a href="#" class="custom-navbar-brand">
+          <img src="../assets/1.png" alt="" class="w-25" />
+        </a>
+
+        <button class="custom-navbar-toggler" aria-label="Toggle navigation">
+          <span class="custom-navbar-toggler-icon"></span>
+        </button>
+
+        <div class="custom-navbar-collapse">
+          <ul class="custom-navbar-nav" id="custom-navbar-nav">
+            <li class="custom-nav-item">
+              <a href="../index.html" class="custom-nav-link">Home</a>
+            </li>
+
+            <li class="custom-nav-item">
+              <a href="./Contact.html" class="custom-nav-link">Contact</a>
+            </li>
+
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <li
+                class="custom-nav-item d-flex justify-content-center align-items-center gap-2"
+                id="signOutDropDown"
+              ></li>
+              <li>
+                <a
+                  class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
+                  href="/pages/Cart.html"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row m-2">
+        <div class="col-12">
+          <h2 class="fw-bolder header_cart mt-2">Your Cart</h2>
+        </div>
+        <div
+          class="col-lg-8 col-sm-12 cartContainer productsOnCartContaier gap-5 h-"
+        >
+          <!-- <div class="row">
+            <div class="col-12 d-flex gap-2">
+              <div class="imgContainerCart rounded-4">
+                <img
+                  src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea"
+                  alt=""
+                />
+              </div>
+              <div class="productInfoCart w-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="fw-bolder productName">Premium Cotton T-Shirt</p>
+                  <button class="trashBtn">
+                    <i class="fa-solid fa-trash-can text-danger"></i>
+                  </button>
+                </div>
+                <p class="productSize">
+                  Size: <span class="text-body-secondary">L</span>
+                </p>
+                <div class="row justify-content-between">
+                  <div class="col-4">
+                    <h5 class="productPrice">$145</h5>
+                  </div>
+                  <div
+                    class="IncDecCustom col-4 px-3 d-flex justify-content-between align-items-center"
+                  >
+                    <i
+                      id="decreaseBtn"
+                      class="fa-solid fa-minus customIncDec"
+                    ></i>
+                    <p class="pt-3" id="quantity">1</p>
+                    <i
+                      id="increaseBtn"
+                      class="fa-solid fa-plus customIncDec"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hrLine m-auto my-4"></div>
+          </div> -->
+          <div id="productsInCartComponent"></div>
+        </div>
+        <div class="col-sm-12 col-lg-4 test1">
+          <div class="totalDiscountConatiner" id="totalDiscountConatiner">
+            <p class="fw-bolder productName">Order Summary</p>
+            <div class="lead">
+              <p>Subtotal<span class="fw-bold float-end">$0</span></p>
+              <p>
+                Discount (-0%)
+                <span class="fw-bold float-end text-danger">-$0</span>
+              </p>
+              <p>Delivery Fee <span class="fw-bold float-end">$0</span></p>
+            </div>
+            <div class="hrLine m-auto my-4"></div>
+            <p class="lead">Total <span class="fw-bold float-end">$0</span></p>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <div class="input-group">
+                <span class="input-group-text discountSticker" id="basic-addon1"
+                  ><i class="fa-solid fa-tag"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control inputDiscount"
+                  placeholder="Add Promo Code"
+                  aria-label="discount"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <button class="btn btn-dark btnApply">Apply</button>
+            </div>
+            <button class="btn btn-dark btnCheckout">
+              Go to Checkout <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-section">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <p class="col-md-4 mb-0 text-muted">© 2025 Univeida, Inc</p>
+
+        <a
+          href="/"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/scripts/modules/util.js"></script>
+    <script src="/scripts/modules/Cart.js"></script>
+  </body>
+</html>

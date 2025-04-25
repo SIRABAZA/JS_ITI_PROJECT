@@ -12,8 +12,6 @@ let products = [];
 function checkIfUserLoggedIn() {
   let sessionUser = sessionStorage.getItem("currentUser");
   if (JSON.parse(sessionUser) != null) {
-    registerBtn.remove();
-    loginBtn.remove();
     signOutDropDown.innerHTML = `<div class="dropdown">
                 <a
                   class="btn btn-dark dropdown-toggle btn-user-dropdown"
@@ -41,7 +39,20 @@ function checkIfUserLoggedIn() {
       location.reload();
     });
   } else {
-    signOutDropDown.innerHTML = "";
+    signOutDropDown.innerHTML = `<li class="custom-nav-item" id="loginBtn">
+              <a
+                href="./pages/Login.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Login</a
+              >
+            </li>
+            <li class="custom-nav-item" id="registerBtn">
+              <a
+                href="./pages/Register.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Register</a
+              >
+            </li>`;
   }
 }
 // console.log(JSON.parse(sessionStorage.getItem("currentUser")));

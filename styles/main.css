@@ -478,6 +478,13 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .test1 {
+    margin-top: 10px;
+  }
+  .IncDecCustom {
+    width: 100%;
+  }
+
   .svg-login {
     height: 75%;
   }
@@ -684,4 +691,106 @@ body {
 }
 .addToCart {
   width: 100%;
+}
+.header_cart {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+.imgContainerCart {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8.65772px;
+  }
+  width: 124px;
+  height: 124px;
+}
+.productName {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+}
+.productSize {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+}
+.productPrice {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
+}
+.trashBtn {
+  border: none;
+  background-color: transparent;
+}
+.productsOnCartContaier {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px 24px;
+}
+.btnIncDecCustomize {
+  /* background-color: transparent;
+  border: none; */
+  padding: 0px 0px;
+}
+.IncDecCustom {
+  gap: 20px;
+
+  background: #f0f0f0;
+  border-radius: 62px;
+}
+.customIncDec {
+  cursor: pointer;
+}
+.hrLine {
+  width: 95%;
+  height: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.totalDiscountConatiner {
+  padding: 20px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+.inputDiscount {
+  background: #f0f0f0;
+  border-radius: 62px;
+}
+.discountSticker {
+  background: #f0f0f0;
+  border-radius: 62px;
+}
+.btnApply{
+
+  border-radius: 62px;
+  -webkit-border-radius: 62px;
+  -moz-border-radius: 62px;
+  -ms-border-radius: 62px;
+  -o-border-radius: 62px;
+}
+.btnApply:hover{
+  background-color: white;
+  color: #000000;
+}
+.btnCheckout{
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 62px;
+  -webkit-border-radius: 62px;
+  -moz-border-radius: 62px;
+  -ms-border-radius: 62px;
+  -o-border-radius: 62px;
+}
+.btnCheckout:hover{
+  background-color: #FFF;
+  color: #000000;
 }

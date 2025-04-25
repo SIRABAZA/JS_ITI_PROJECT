@@ -1,24 +1,49 @@
-let incrementBtn = document.getElementById("btnIncrementProductPage");
-let decrementBtn = document.getElementById("btnDecrementProductPage");
-let quatity = document.getElementById("Quatity");
+let productContainer = document.getElementById("productContainer");
 const API_URL = "http://localhost:3000/products";
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
-const productContainer = document.getElementById("productContainer");
-console.log(productContainer);
+let productDetails;
+//handle if the user is loggedIn
+function checkIfUserLoggedIn() {
+  let sessionUser = sessionStorage.getItem("currentUser");
+  if (JSON.parse(sessionUser) != null) {
+    registerBtn.remove();
+    loginBtn.remove();
+    signOutDropDown.innerHTML = `<div class="dropdown">
+                <a
+                  class="btn btn-dark dropdown-toggle btn-user-dropdown"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa-solid fa-user"></i>
+                </a>
 
+                <ul class="dropdown-menu p-3">
+                  <li class="px-2 pb-3">Hello ${
+                    JSON.parse(sessionUser).name
+                  }</li>
+                  <li class="">
+                    <button class="btn btn-dark btn-user-dropdown w-100 py-2 px-3" id="signOutBtn">Sign Out</button>
+                  </li>
+                </ul>
+              </div>`;
+    let signOutBtn = document.getElementById("signOutBtn");
+
+    signOutBtn.addEventListener("click", function () {
+      sessionStorage.removeItem("currentUser");
+      location.reload();
+    });
+  } else {
+    signOutDropDown.innerHTML = "";
+  }
+}
+window.onload = function () {
+  checkIfUserLoggedIn();
+};
 console.log("Showing product:", productId);
 
-incrementBtn.addEventListener("click", function () {
-  quatity.innerHTML = Number(quatity.textContent) + 1;
-});
-decrementBtn.addEventListener("click", function () {
-  if (quatity.textContent == "1") {
-    quatity.innerHTML = 1;
-  } else {
-    quatity.innerHTML = Number(quatity.textContent) - 1;
-  }
-});
 function renderProduct(productToRender) {
   productContainer.innerHTML = "";
 
@@ -116,6 +141,9 @@ function renderProduct(productToRender) {
                   </select>
                   <label for="floatingSelectGrid">Size</label>
                 </div>
+                          <div id="pleaseSelectSize">
+            
+          </div>
               </div>
             </div>
           </div>
@@ -125,6 +153,7 @@ function renderProduct(productToRender) {
                 <button
                   href="#"
                   class="btn addToCart btn-dark text-center viewProductBtn"
+                  id="addToCartProduct"
                 >
                   Add To Cart
                   <i class="fa-solid fa-cart-shopping"></i>
@@ -166,6 +195,52 @@ function renderProduct(productToRender) {
           </div>
         </div>
       </div>`;
+  let pleaseSelectSize = document.getElementById("pleaseSelectSize");
+
+  let incrementBtn = document.getElementById("btnIncrementProductPage");
+  let decrementBtn = document.getElementById("btnDecrementProductPage");
+  let quatity = document.getElementById("Quatity");
+  let addToCartBtn = document.getElementById("addToCartProduct");
+  let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  let selectSize = document.getElementById("floatingSelectGrid");
+
+  let selectedOption = selectSize.options[selectSize.selectedIndex];
+  let selectedText = selectedOption.textContent;
+  selectSize.addEventListener("change", function () {
+    selectedOption = this.options[selectSize.selectedIndex];
+    selectedText = selectedOption.textContent;
+  });
+  //increment Event
+  incrementBtn.addEventListener("click", function () {
+    quatity.innerHTML = Number(quatity.textContent) + 1;
+  });
+
+  //Decrement Event
+  decrementBtn.addEventListener("click", function () {
+    if (quatity.textContent == "1") {
+      quatity.innerHTML = 1;
+    } else {
+      quatity.innerHTML = Number(quatity.textContent) - 1;
+    }
+  });
+
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", (e) => {
+      let theProduct = {
+        id: productToRender.id,
+        title: productToRender.title,
+        category: productToRender.category,
+        price: productToRender.price,
+        priceBeforeDiscount: productToRender.priceBeforeDiscount,
+        image: productToRender.images[0],
+        size: selectedText,
+        quantity: Number(quatity.textContent),
+      };
+
+      e.preventDefault();
+      addToCart(currentUser.id, theProduct);
+    });
+  }
 }
 if (productId) {
   fetchProductById(productId);
@@ -179,11 +254,184 @@ async function fetchProductById(id) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const product = await response.json();
-
     renderProduct(product);
-
     return product;
   } catch (error) {
     console.error(`Error fetching product ${id}:`, error);
   }
 }
+
+async function addToCart(userId, product) {
+  if (product.size == "Select Your Size") {
+    pleaseSelectSize.innerHTML = `<p class="lead text-danger">Please Select A Size</p>`;
+    return;
+  } else {
+    pleaseSelectSize.innerHTML = "";
+  }
+  try {
+    // 1. Fetch the current user data
+    const response = await fetch(`http://localhost:3000/users/${userId}`);
+    const user = await response.json();
+
+    let updatedCart;
+
+    // Check if the product with the same ID AND size exists
+    const existingProductIndex = user.cart.findIndex(
+      (item) => item.id === product.id && item.size === product.size
+    );
+
+    if (existingProductIndex !== -1) {
+      // Product with same ID & size exists → increase quantity
+      updatedCart = [...user.cart];
+      updatedCart[existingProductIndex].quantity =
+        (updatedCart[existingProductIndex].quantity || 1) +
+        (product.quantity || 1);
+    } else {
+      // Product doesn't exist or has a different size → add as new item
+      updatedCart = [
+        ...user.cart,
+        { ...product, quantity: product.quantity || 1 },
+      ];
+    }
+
+    // Update the user's cart
+    const updateResponse = await fetch(
+      `http://localhost:3000/users/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cart: updatedCart,
+        }),
+      }
+    );
+
+    return await updateResponse.json();
+  } catch (error) {
+    console.error("Error adding to cart:", error);
+    throw error;
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all necessary elements
+  const slides = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev-button");
+  const nextButton = document.querySelector(".next-button");
+  const dotsContainer = document.querySelector(".dots-container");
+
+  let currentIndex = 0;
+  let interval;
+
+  // Create dots based on number of slides
+  function createDots() {
+    slides.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+        resetAutoSlide();
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Function to display a specific slide
+  function goToSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach((slide) => slide.classList.remove("active"));
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    // Add active class to current slide and dot
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentIndex = index;
+  }
+
+  // Function to go to next slide
+  function nextSlide() {
+    const newIndex = (currentIndex + 1) % slides.length;
+    goToSlide(newIndex);
+  }
+
+  // Function to go to previous slide
+  function prevSlide() {
+    const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(newIndex);
+  }
+
+  // Reset auto slide timer
+  function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  // Start automatic slideshow
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  // Event listeners
+  prevButton.addEventListener("click", () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  nextButton.addEventListener("click", () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+      resetAutoSlide();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+      resetAutoSlide();
+    }
+  });
+
+  // Touch events for mobile swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const slider = document.querySelector(".slider");
+
+  slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const minSwipeDistance = 50;
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > minSwipeDistance) {
+      // Swiped right, go to previous slide
+      prevSlide();
+      resetAutoSlide();
+    } else if (swipeDistance < -minSwipeDistance) {
+      // Swiped left, go to next slide
+      nextSlide();
+      resetAutoSlide();
+    }
+  }
+
+  // Initialize
+  createDots();
+  startAutoSlide();
+});
