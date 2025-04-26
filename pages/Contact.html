@@ -40,29 +40,25 @@
             <li class="custom-nav-item">
               <a href="../index.html" class="custom-nav-link">Home</a>
             </li>
+
             <li class="custom-nav-item">
-              <a href="Contact.html" class="custom-nav-link">Contact</a>
+              <a href="./Contact.html" class="custom-nav-link">Contact</a>
             </li>
-            <li class="custom-nav-item" id="loginBtn">
-              <a href="Login.html" class="custom-nav-link btn btn-dark nav-btns"
-                >Login</a
-              >
-            </li>
-            <li class="custom-nav-item" id="registerBtn">
-              <a
-                href="Register.html"
-                class="custom-nav-link btn btn-dark nav-btns"
-                >Register</a
-              >
-            </li>
-            <li class="custom-nav-item" id="signOutDropDown"></li>
-            <li>
-              <button
-                class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
-              >
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </li>
+
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <li
+                class="custom-nav-item d-flex justify-content-center align-items-center gap-2"
+                id="signOutDropDown"
+              ></li>
+              <li>
+                <a
+                  class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
+                  href="./Cart.html"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
@@ -71,7 +67,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="w-100 m-auto border p-3 shadow-sm Register__form">
-            <h3 class="text-center mb-3 ">Contact US</h3>
+            <h3 class="text-center mb-3">Contact US</h3>
             <div class="row">
               <div class="col-md-12 col-lg-6 mb-3">
                 <svg
@@ -344,7 +340,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="../scripts/modules/util.js"></script>
-    <script src="../scripts/modules/Register.js" type="module"></script>
-    <script src="../app.js" type="module"></script>
+    <script src="../scripts/modules/ContactUs.js"></script>
+    <!-- <script src="../scripts/modules/Register.js" type="module"></script> -->
+    <!-- <script src="../app.js" type="module"></script> -->
   </body>
 </html>

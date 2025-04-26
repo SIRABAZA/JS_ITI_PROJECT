@@ -36,6 +36,8 @@ function checkIfUserLoggedIn() {
       location.reload();
     });
   } else {
+    window.location.href = "http://127.0.0.1:5500/pages/Login.html";
+
     signOutDropDown.innerHTML = "";
   }
 }
@@ -314,7 +316,6 @@ async function addToCart(userId, product) {
     throw error;
   }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get all necessary elements

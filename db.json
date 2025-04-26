@@ -17,56 +17,35 @@
       "password": "123",
       "createdAt": "2025-04-15T20:07:28.338Z",
       "isActive": true,
-      "cart": [
+      "cart": [],
+      "orders": [
         {
-          "id": "p2",
-          "title": "Slim Fit Chino Trousers",
-          "category": "trousers",
-          "price": 59.99,
-          "priceBeforeDiscount": 79.99,
-          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
-          "size": "S",
-          "quantity": 4
-        },
-        {
-          "id": "p4",
-          "title": "Graphic Print T-Shirt",
-          "category": "tshirts",
-          "price": 34.99,
-          "priceBeforeDiscount": 44.99,
-          "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
-          "size": "L",
-          "quantity": 8
-        },
-        {
-          "id": "p5",
-          "title": "Linen Casual Shirt",
-          "category": "shirts",
-          "price": 54.99,
-          "priceBeforeDiscount": 69.99,
-          "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
-          "size": "M",
-          "quantity": 2
-        },
-        {
-          "id": "p4",
-          "title": "Graphic Print T-Shirt",
-          "category": "tshirts",
-          "price": 34.99,
-          "priceBeforeDiscount": 44.99,
-          "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
-          "size": "XL",
-          "quantity": 4
-        },
-        {
-          "id": "p2",
-          "title": "Slim Fit Chino Trousers",
-          "category": "trousers",
-          "price": 59.99,
-          "priceBeforeDiscount": 79.99,
-          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
-          "size": "M",
-          "quantity": 3
+          "orderId": "ORD-M9Y9ARFF",
+          "date": "2025-04-26T13:28:39.771Z",
+          "items": [
+            {
+              "id": "p4",
+              "title": "Graphic Print T-Shirt",
+              "category": "tshirts",
+              "price": 34.99,
+              "priceBeforeDiscount": 44.99,
+              "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+              "size": "S",
+              "quantity": 1
+            }
+          ],
+          "shippingAddress": {
+            "firstName": "omar",
+            "lastName": "abaza",
+            "addressLine1": "21431 san simeon way apt 101",
+            "addressLine2": "",
+            "city": "MIAMI",
+            "state": "Florida",
+            "zipCode": "33179"
+          },
+          "paymentMethod": "cash",
+          "status": "processing",
+          "total": 34.99
         }
       ]
     },
@@ -86,6 +65,16 @@
       "email": "alasai@x.com",
       "password": "21319610Mm**",
       "createdAt": "2025-04-20T06:44:49.684Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
+    },
+    {
+      "id": "789c",
+      "name": "asas",
+      "email": "omar@sak.com",
+      "password": "21319610Mm**",
+      "createdAt": "2025-04-25T10:33:18.800Z",
       "isActive": true,
       "cart": [],
       "orders": []

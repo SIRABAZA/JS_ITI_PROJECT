@@ -1,11 +1,20 @@
-let navUlBtn = document.getElementById("custom-navbar-nav");
-let registerBtn = document.getElementById("registerBtn");
-let loginBtn = document.getElementById("loginBtn");
-let signOutDropDown = document.getElementById("signOutDropDown");
-let priceInput = document.getElementById("priceInput");
-let sizeInput = document.getElementById("sizeInput");
-let productsContainer = document.getElementById("products-container");
-let viewProductBtns = document.querySelectorAll(".viewProductBtn");
+const navUlBtn = document.getElementById("custom-navbar-nav");
+const registerBtn = document.getElementById("registerBtn");
+const loginBtn = document.getElementById("loginBtn");
+const signOutDropDown = document.getElementById("signOutDropDown");
+const priceInput = document.getElementById("priceInput");
+const sizeInput = document.getElementById("sizeInput");
+const productsContainer = document.getElementById("products-container");
+const viewProductBtns = document.querySelectorAll(".viewProductBtn");
+const tshirtCheckbox = document.getElementById("tshirtInput");
+const trousersCheckbox = document.getElementById("trousersInput");
+const shirtsCheckbox = document.getElementById("shirtsInput");
+const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
+let currentFilters = {
+  categories: [],
+  price: null,
+  size: null,
+};
 let products = [];
 
 //handle if the user is loggedIn
@@ -69,24 +78,57 @@ async function fetchProducts() {
     if (!response.ok) throw new Error("Network response was not ok");
 
     const data = await response.json();
+    products = Array.isArray(data) ? data : data.products || [];
 
-    // Handle both array and object formats
-    if (Array.isArray(data)) {
-      products = data; // Direct array of products
-    } else if (data.products && Array.isArray(data.products)) {
-      products = data.products; // Object with products array
-    } else {
-      throw new Error(
-        "Invalid data format: expected array or object with products array"
-      );
-    }
-
-    renderProducts(products);
+    applyFilters(); // Apply any existing filters
   } catch (error) {
     console.error("Error fetching products:", error);
     showError(error.message);
   }
 }
+function applyFilters() {
+  let filteredProducts = [...products];
+
+  // Category filter
+  if (currentFilters.categories.length > 0) {
+    filteredProducts = filteredProducts.filter((product) =>
+      currentFilters.categories.includes(product.category.toLowerCase())
+    );
+  }
+
+  // Price filter
+  if (currentFilters.price) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price <= currentFilters.price
+    );
+  }
+
+  // Size filter
+  if (currentFilters.size) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.sizes.includes(currentFilters.size.toUpperCase())
+    );
+  }
+
+  renderProducts(filteredProducts);
+}
+categoryCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", function () {
+    const category = this.dataset.category;
+
+    if (this.checked) {
+      if (!currentFilters.categories.includes(category)) {
+        currentFilters.categories.push(category);
+      }
+    } else {
+      currentFilters.categories = currentFilters.categories.filter(
+        (c) => c !== category
+      );
+    }
+
+    applyFilters();
+  });
+});
 
 function renderProducts(productsToRender) {
   const productsContainer = document.getElementById("products-container");
@@ -164,12 +206,23 @@ function showError(message) {
 }
 
 //handle when price input chanage
+let priceTimeout;
 priceInput.addEventListener("input", function (e) {
-  if (e.target.value == "") {
-    fetchProducts();
-  } else {
-    filterProdcutsPrice(e.target.value);
+  clearTimeout(priceTimeout);
+
+  if (e.target.value === "") {
+    currentFilters.price = null;
+    applyFilters();
+    return;
   }
+
+  priceTimeout = setTimeout(() => {
+    const price = parseFloat(e.target.value);
+    if (!isNaN(price)) {
+      currentFilters.price = price;
+      applyFilters();
+    }
+  }, 300);
 });
 async function filterProdcutsPrice(price) {
   try {
@@ -207,12 +260,27 @@ async function filterProdcutsSize(size) {
   }
 }
 sizeInput.addEventListener("input", function (e) {
-  if (e.target.value == "") {
-    fetchProducts();
+  if (e.target.value === "") {
+    currentFilters.size = null;
+    applyFilters();
   } else {
-    filterProdcutsSize(e.target.value.toUpperCase());
+    currentFilters.size = e.target.value;
+    applyFilters();
   }
 });
+function resetFilters() {
+  categoryCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+  priceInput.value = "";
+  sizeInput.value = "";
+  currentFilters = {
+    categories: [],
+    price: null,
+    size: null,
+  };
+  applyFilters();
+}
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {

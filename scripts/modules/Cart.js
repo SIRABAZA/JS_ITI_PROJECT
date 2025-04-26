@@ -1,3 +1,7 @@
+window.onload = function () {
+  // Your code here
+  checkIfUserLoggedIn();
+};
 let userObj = JSON.parse(sessionStorage.getItem("currentUser"));
 let productsInCartComponent = document.getElementById(
   "productsInCartComponent"
@@ -6,7 +10,6 @@ const apiBaseUrl = "http://localhost:3000"; // Adjust if your JSON server runs o
 let totalDiscountConatiner = document.getElementById("totalDiscountConatiner");
 // let totalAfterDiscount = 0;
 // let totalBeforeDiscount = 0;
-console.log(userObj);
 
 function checkCart(cart) {
   if (cart.length > 0) {
@@ -15,7 +18,6 @@ function checkCart(cart) {
     return false;
   }
 }
-function renderOrderSummary() {}
 // Global variables
 
 let cart = []; // This will store our local copy of the cart
@@ -287,9 +289,9 @@ function updateOrderSummary(cartItems) {
       </div>
       <button class="btn btn-dark btnApply">Apply</button>
     </div>
-    <button class="btn btn-dark btnCheckout">
-      Go to Checkout <i class="fa-solid fa-arrow-right"></i>
-    </button>
+    <a href="./Checkout.html" class="btn btn-dark btnCheckout">
+      Buy Now <i class="fa-solid fa-arrow-right"></i>
+    </a>
   `;
 }
 // Initialize the cart when page loads
@@ -341,6 +343,7 @@ function checkIfUserLoggedIn() {
       location.reload();
     });
   } else {
+    window.location.href = "http://127.0.0.1:5500/pages/Login.html";
     signOutDropDown.innerHTML = `<li class="custom-nav-item" id="loginBtn">
               <a
                 href="./Login.html"
@@ -358,7 +361,3 @@ function checkIfUserLoggedIn() {
   }
 }
 // console.log(JSON.parse(sessionStorage.getItem("currentUser")));
-window.onload = function () {
-  // Your code here
-  checkIfUserLoggedIn();
-};

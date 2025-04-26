@@ -53,7 +53,7 @@
               <li>
                 <a
                   class="btn btn-outline-dark text-dark py-2 px-3 cart__btn"
-                  href="/pages/Cart.html"
+                  href="./Cart.html"
                 >
                   <i class="fa-solid fa-cart-shopping"></i>
                 </a>
@@ -63,88 +63,44 @@
         </div>
       </div>
     </nav>
+    <div class="container my-4">
+      <div class="w-50 m-auto border p-3 orderConfirmationContainer">
+        <h2>Order Confirmation</h2>
+        <p class="lead fs-5">
+          You 'll receive an email when your order is ready.
+        </p>
+        <div class="d-flex gap-3 mt-2">
+          <div class="imageContainerOrderConfirmation">
+            <img
+              class="w-100 h-100"
+              src="https://images.unsplash.com/photo-1527719327859-c6ce80353573"
+              alt=""
+            />
+          </div>
+          <div>
+            <h4>Graphic Print T-Shirt</h4>
+            <p class="lead">Quantity : <span class="fw-bold">2</span></p>
+          </div>
+        </div>
+        <div class="hrLine m-auto my-4"></div>
+        <div class="row my-3">
+          <div class="col-6">
+            <p class="fw-bold my-0">Shipping Address</p>
+            <p class="lead my-0">21431 san simeon way apt 101</p>
+            <p class="lead my-0">Miami</p>
+            <p class="lead my-0">Florida</p>
+            <p class="lead my-0">33718</p>
 
-    <div class="container">
-      <div class="row m-2">
-        <div class="col-12">
-          <h2 class="fw-bolder header_cart mt-2">Your Cart</h2>
-        </div>
-        <div
-          class="col-lg-8 col-sm-12 cartContainer productsOnCartContaier gap-5 h-"
-        >
-          <!-- <div class="row">
-            <div class="col-12 d-flex gap-2">
-              <div class="imgContainerCart rounded-4">
-                <img
-                  src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea"
-                  alt=""
-                />
-              </div>
-              <div class="productInfoCart w-100">
-                <div class="d-flex justify-content-between align-items-center">
-                  <p class="fw-bolder productName">Premium Cotton T-Shirt</p>
-                  <button class="trashBtn">
-                    <i class="fa-solid fa-trash-can text-danger"></i>
-                  </button>
-                </div>
-                <p class="productSize">
-                  Size: <span class="text-body-secondary">L</span>
-                </p>
-                <div class="row justify-content-between">
-                  <div class="col-4">
-                    <h5 class="productPrice">$145</h5>
-                  </div>
-                  <div
-                    class="IncDecCustom col-4 px-3 d-flex justify-content-between align-items-center"
-                  >
-                    <i
-                      id="decreaseBtn"
-                      class="fa-solid fa-minus customIncDec"
-                    ></i>
-                    <p class="pt-3" id="quantity">1</p>
-                    <i
-                      id="increaseBtn"
-                      class="fa-solid fa-plus customIncDec"
-                    ></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="hrLine m-auto my-4"></div>
-          </div> -->
-          <div id="productsInCartComponent"></div>
-        </div>
-        <div class="col-sm-12 col-lg-4 test1">
-          <div class="totalDiscountConatiner" id="totalDiscountConatiner">
-            <p class="fw-bolder productName">Order Summary</p>
-            <div class="lead">
-              <p>Subtotal<span class="fw-bold float-end">$0</span></p>
-              <p>
-                Discount (-0%)
-                <span class="fw-bold float-end text-danger">-$0</span>
-              </p>
-              <p>Delivery Fee <span class="fw-bold float-end">$0</span></p>
-            </div>
-            <div class="hrLine m-auto my-4"></div>
-            <p class="lead">Total <span class="fw-bold float-end">$0</span></p>
-            <div class="d-flex justify-content-center align-items-center gap-2">
-              <div class="input-group">
-                <span class="input-group-text discountSticker" id="basic-addon1"
-                  ><i class="fa-solid fa-tag"></i
-                ></span>
-                <input
-                  type="text"
-                  class="form-control inputDiscount"
-                  placeholder="Add Promo Code"
-                  aria-label="discount"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-              <button class="btn btn-dark btnApply">Apply</button>
-            </div>
-            <button class="btn btn-dark btnCheckout disabled">
-              Buy Now <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <p class="fw-bold my-0">Shipment Method</p>
+            <p class="lead">Delivary</p>
+          </div>
+          <div class="col-6">
+            <p class="fw-bolder">Payment Method</p>
+            <p>Card</p>
+          </div>
+          <div class="hrLine m-auto my-4"></div>
+          <div class="col-12">
+            <h3>Total : <span>$623</span></h3>
           </div>
         </div>
       </div>
@@ -188,7 +144,7 @@
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
-    <script src="/scripts/modules/util.js"></script>
-    <script src="/scripts/modules/Cart.js"></script>
+    <script src="../scripts/modules/util.js"></script>
+    <script src="../scripts/modules/OrderConfirmation.js"></script>
   </body>
 </html>

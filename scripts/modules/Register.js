@@ -4,6 +4,8 @@ const emailInput = document.getElementById("exampleInputEmail");
 const passwordInput = document.getElementById("exampleInputPassword");
 const confirmInput = document.getElementById("exampleInputConfirmPassword");
 const form = document.getElementById("myForm");
+const signOutDropDown = document.getElementById("signOutDropDown");
+
 function checkIfUserLoggedIn() {
   let sessionUser = sessionStorage.getItem("currentUser");
   if (JSON.parse(sessionUser) != null) {
@@ -51,12 +53,9 @@ function checkIfUserLoggedIn() {
   }
 }
 // console.log(JSON.parse(sessionStorage.getItem("currentUser")));
-window.onload = function () {
-  // Your code here
-  checkIfUserLoggedIn();
-};
 
 window.onload = function () {
+  checkIfUserLoggedIn();
   let sessionUser = sessionStorage.getItem("currentUser");
   if (JSON.parse(sessionUser) != null) {
     window.location.href("./Login.html");
@@ -200,6 +199,7 @@ form.addEventListener("submit", async function (e) {
     createdAt: new Date().toISOString(),
     isActive: true,
     cart: [],
+    orders: [],
   };
 
   try {
