@@ -7,7 +7,6 @@ let checkoutForm = document.getElementById("checkoutForm");
 let placeOrderBtn = document.getElementById("placeOrderBtn");
 const apiBaseUrl = "http://localhost:3000";
 
-// Form inputs
 const formInputs = {
   firstName: document.getElementById("firstNameInput"),
   lastName: document.getElementById("lastNameInput"),
@@ -23,7 +22,56 @@ const formInputs = {
   cvv: document.getElementById("cvv"),
 };
 
-// Calculate discount percentage correctly
+function checkIfUserLoggedIn() {
+  let sessionUser = sessionStorage.getItem("currentUser");
+  if (JSON.parse(sessionUser) != null) {
+    signOutDropDown.innerHTML = `<div class="dropdown">
+                <a
+                  class="btn btn-dark dropdown-toggle btn-user-dropdown"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa-solid fa-user"></i>
+                </a>
+
+                <ul class="dropdown-menu p-3">
+                  <li class="px-2 pb-3">Hello ${
+                    JSON.parse(sessionUser).name
+                  }</li>
+                  <li class="">
+                    <button class="btn btn-dark btn-user-dropdown w-100 py-2 px-3" id="signOutBtn">Sign Out</button>
+                  </li>
+                </ul>
+              </div>`;
+    let signOutBtn = document.getElementById("signOutBtn");
+
+    signOutBtn.addEventListener("click", function () {
+      sessionStorage.removeItem("currentUser");
+      location.reload();
+    });
+  } else {
+    signOutDropDown.innerHTML = `<li class="custom-nav-item" id="loginBtn">
+              <a
+                href="./Login.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Login</a
+              >
+            </li>
+            <li class="custom-nav-item" id="registerBtn">
+              <a
+                href="./Register.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Register</a
+              >
+            </li>`;
+  }
+}
+window.onload = function () {
+  checkIfUserLoggedIn();
+};
+
 function calculateDiscountPercentage(originalPrice, discountedPrice) {
   if (originalPrice <= 0) return 0;
   const discountAmount = originalPrice - discountedPrice;
@@ -99,7 +147,6 @@ function updateOrderSummary(cartItems) {
     </button>
   `;
 
-  // Add event listener to the new place order button
   document
     .getElementById("placeOrderBtn")
     .addEventListener("click", handlePlaceOrder);
@@ -174,7 +221,6 @@ function validateForm() {
     }
   });
 
-  // Validate payment method if credit card is selected
   if (formInputs.paymentMethod.value === "card") {
     const cardFields = [
       formInputs.cardNumber,
@@ -203,7 +249,6 @@ async function handlePlaceOrder() {
   }
 
   try {
-    // First get current user data
     const userResponse = await fetch(`${apiBaseUrl}/users/${userObj.id}`);
     if (!userResponse.ok) throw new Error("Failed to fetch user data");
     const userData = await userResponse.json();
@@ -219,11 +264,10 @@ async function handlePlaceOrder() {
       0
     );
 
-    // Create comprehensive order object
     const order = {
       orderId: "ORD-" + Date.now().toString(36).toUpperCase(),
       date: new Date().toISOString(),
-      items: [...userData.cart], // Copy cart items
+      items: [...userData.cart],
       shippingAddress: {
         firstName: formInputs.firstName.value,
         lastName: formInputs.lastName.value,
@@ -242,14 +286,12 @@ async function handlePlaceOrder() {
     };
     sessionStorage.setItem("latestOrder", JSON.stringify(order));
 
-    // Update user's orders array
     const updatedUser = {
       ...userData,
       orders: [...(userData.orders || []), order],
       cart: [],
     };
 
-    // Update user data on server
     const updateResponse = await fetch(`${apiBaseUrl}/users/${userObj.id}`, {
       method: "PUT",
       headers: {
@@ -260,7 +302,6 @@ async function handlePlaceOrder() {
 
     if (!updateResponse.ok) throw new Error("Failed to update user data");
 
-    // Redirect to confirmation page
     window.location.href = "./OrderConfirmation.html";
   } catch (error) {
     console.error("Error placing order:", error);
@@ -268,7 +309,6 @@ async function handlePlaceOrder() {
   }
 }
 
-// Helper function to generate order ID
 function generateOrderId() {
   return (
     "ORD-" +
@@ -287,7 +327,6 @@ async function initializeCheckout() {
     const userData = await fetchUserData();
     if (!userData) return;
 
-    // Clear previous products
     productsInCartComponent.innerHTML = "";
 
     if (userData.cart && userData.cart.length > 0) {
@@ -297,10 +336,8 @@ async function initializeCheckout() {
       updateOrderSummary([]);
     }
 
-    // Prefill user data if available
     prefillUserData(userData);
 
-    // Add event listeners
     document
       .querySelectorAll('input[name="paymentMethod"]')
       .forEach((radio) => {
@@ -311,7 +348,7 @@ async function initializeCheckout() {
   } catch (error) {
     console.error("Error initializing checkout:", error);
   }
-  // Add to your initializeCheckout function
+
   document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
     radio.addEventListener("change", function () {
       formInputs.paymentMethod = this;
@@ -325,5 +362,4 @@ async function initializeCheckout() {
   });
 }
 
-// Initialize when DOM is loaded
 window.addEventListener("DOMContentLoaded", initializeCheckout);

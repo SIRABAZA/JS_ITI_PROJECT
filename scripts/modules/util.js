@@ -5,7 +5,9 @@ const dropdownToggles = document.querySelectorAll(".custom-dropdown-toggle");
 const navLinks = document.querySelectorAll(
   ".custom-nav-link:not(.custom-dropdown-toggle)"
 );
-
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 // Toggle navigation menu on toggler click
 navbarToggler.addEventListener("click", () => {
   navbarCollapse.classList.toggle("show");
@@ -74,4 +76,3 @@ window.addEventListener("resize", () => {
     });
   }
 });
-

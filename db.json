@@ -17,21 +17,52 @@
       "password": "123",
       "createdAt": "2025-04-15T20:07:28.338Z",
       "isActive": true,
-      "cart": [],
+      "cart": [
+        {
+          "id": "p4",
+          "title": "Graphic Print T-Shirt",
+          "category": "tshirts",
+          "price": 34.99,
+          "priceBeforeDiscount": 44.99,
+          "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+          "size": "M",
+          "quantity": 2
+        },
+        {
+          "id": "p3",
+          "title": "Classic Oxford Shirt",
+          "category": "shirts",
+          "price": 49.99,
+          "priceBeforeDiscount": 64.99,
+          "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633",
+          "size": "M",
+          "quantity": 4
+        }
+      ],
       "orders": [
         {
-          "orderId": "ORD-M9Y9ARFF",
-          "date": "2025-04-26T13:28:39.771Z",
+          "orderId": "ORD-M9ZIK01D",
+          "date": "2025-04-27T10:35:33.553Z",
           "items": [
             {
-              "id": "p4",
-              "title": "Graphic Print T-Shirt",
+              "id": "p3",
+              "title": "Classic Oxford Shirt",
+              "category": "shirts",
+              "price": 49.99,
+              "priceBeforeDiscount": 64.99,
+              "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633",
+              "size": "M",
+              "quantity": 5
+            },
+            {
+              "id": "p1",
+              "title": "Premium Cotton T-Shirt",
               "category": "tshirts",
-              "price": 34.99,
-              "priceBeforeDiscount": 44.99,
-              "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+              "price": 29.99,
+              "priceBeforeDiscount": 39.99,
+              "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
               "size": "S",
-              "quantity": 1
+              "quantity": 3
             }
           ],
           "shippingAddress": {
@@ -45,7 +76,7 @@
           },
           "paymentMethod": "cash",
           "status": "processing",
-          "total": 34.99
+          "total": 339.92
         }
       ]
     },
@@ -78,6 +109,152 @@
       "isActive": true,
       "cart": [],
       "orders": []
+    },
+    {
+      "id": "fc3a",
+      "name": "omar",
+      "email": "ASKASO@A.A",
+      "password": "21319610mM**",
+      "createdAt": "2025-04-26T16:35:59.245Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
+    },
+    {
+      "id": "34ca",
+      "name": "omar",
+      "email": "aliasa@x.com",
+      "password": "21319610Mm**",
+      "createdAt": "2025-04-27T11:11:52.472Z",
+      "isActive": true,
+      "cart": [],
+      "orders": [
+        {
+          "orderId": "ORD-MA07LMAK",
+          "date": "2025-04-27T22:16:39.452Z",
+          "items": [
+            {
+              "id": "p1",
+              "title": "Premium Cotton T-Shirt",
+              "category": "tshirts",
+              "price": 29.99,
+              "priceBeforeDiscount": 39.99,
+              "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+              "size": "S",
+              "quantity": 4
+            }
+          ],
+          "shippingAddress": {
+            "firstName": "omar",
+            "lastName": "abaza",
+            "addressLine1": "21431 san simeon way apt 101",
+            "addressLine2": "",
+            "city": "MIAMI",
+            "state": "Florida",
+            "zipCode": "33179"
+          },
+          "paymentMethod": "cash",
+          "status": "processing",
+          "total": 119.96
+        },
+        {
+          "orderId": "ORD-MA493GIO",
+          "date": "2025-04-30T18:09:36.096Z",
+          "items": [
+            {
+              "id": "p6",
+              "title": "Denim Jacket",
+              "category": "jackets",
+              "price": 79.99,
+              "priceBeforeDiscount": 99.99,
+              "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+              "size": "M",
+              "quantity": 3
+            }
+          ],
+          "shippingAddress": {
+            "firstName": "omar",
+            "lastName": "abaza",
+            "addressLine1": "21431 san simeon way apt 101",
+            "addressLine2": "",
+            "city": "MIAMI",
+            "state": "Florida",
+            "zipCode": "33179"
+          },
+          "paymentMethod": "card",
+          "status": "processing",
+          "total": 239.96999999999997
+        }
+      ]
+    },
+    {
+      "id": "3469",
+      "name": "kma",
+      "email": "alasi@x.com",
+      "password": "21319610Mm**",
+      "createdAt": "2025-04-30T18:05:03.277Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
+    },
+    {
+      "id": "4dc2",
+      "name": "OMAR",
+      "email": "ALI@X.COM",
+      "password": "21319610mM**",
+      "createdAt": "2025-04-30T18:11:35.831Z",
+      "isActive": true,
+      "cart": [],
+      "orders": []
+    },
+    {
+      "id": "6eaa",
+      "name": "OMAR",
+      "email": "assaali@x.com",
+      "password": "21319610Mm**",
+      "createdAt": "2025-04-30T18:14:23.342Z",
+      "isActive": true,
+      "cart": [],
+      "orders": [
+        {
+          "orderId": "ORD-MA49AYMJ",
+          "date": "2025-04-30T18:15:26.155Z",
+          "items": [
+            {
+              "id": "p1",
+              "title": "Premium Cotton T-Shirt",
+              "category": "tshirts",
+              "price": 29.99,
+              "priceBeforeDiscount": 39.99,
+              "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+              "size": "M",
+              "quantity": 1
+            },
+            {
+              "id": "p4",
+              "title": "Graphic Print T-Shirt",
+              "category": "tshirts",
+              "price": 34.99,
+              "priceBeforeDiscount": 44.99,
+              "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+              "size": "M",
+              "quantity": 2
+            }
+          ],
+          "shippingAddress": {
+            "firstName": "omar",
+            "lastName": "abaza",
+            "addressLine1": "21431 san simeon way apt 101",
+            "addressLine2": "",
+            "city": "MIAMI",
+            "state": "Florida",
+            "zipCode": "33179"
+          },
+          "paymentMethod": "card",
+          "status": "processing",
+          "total": 99.97
+        }
+      ]
     }
   ],
   "products": [
@@ -208,6 +385,83 @@
       ],
       "rating": 4.6,
       "stock": 22
+    },
+    {
+      "id": "p6",
+      "title": "Denim Jacket",
+      "description": "Classic denim jacket with modern fit. Perfect for layering.",
+      "category": "jackets",
+      "price": 79.99,
+      "priceBeforeDiscount": 99.99,
+      "images": [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
+        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
+      ],
+      "colors": [
+        "#1E40AF",
+        "#000000",
+        "#3F6212"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.8,
+      "stock": 18
+    },
+    {
+      "id": "p7",
+      "title": "Athletic Joggers",
+      "description": "Performance joggers with moisture-wicking fabric. Great for workouts.",
+      "category": "trousers",
+      "price": 44.99,
+      "priceBeforeDiscount": 59.99,
+      "images": [
+        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
+        "https://images.unsplash.com/photo-1542272604-787c3835535d",
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea"
+      ],
+      "colors": [
+        "#000000",
+        "#334155",
+        "#1E40AF"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.4,
+      "stock": 30
+    },
+    {
+      "id": "p8",
+      "title": "Cashmere Sweater",
+      "description": "Luxurious 100% cashmere sweater for ultimate comfort.",
+      "category": "sweaters",
+      "price": 129.99,
+      "priceBeforeDiscount": 159.99,
+      "images": [
+        "https://images.unsplash.com/photo-1527719327859-c6ce80353573",
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27",
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+      ],
+      "colors": [
+        "#78350F",
+        "#064E3B",
+        "#1E40AF"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "rating": 4.9,
+      "stock": 15
     }
   ]
 }

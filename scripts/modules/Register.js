@@ -52,7 +52,6 @@ function checkIfUserLoggedIn() {
             </li>`;
   }
 }
-// console.log(JSON.parse(sessionStorage.getItem("currentUser")));
 
 window.onload = function () {
   checkIfUserLoggedIn();
@@ -168,7 +167,6 @@ function validateForm() {
   return isValid;
 }
 
-// Real-time validation
 [nameInput, emailInput, passwordInput, confirmInput].forEach((input) => {
   input.addEventListener("input", function () {
     if (this.value.trim()) {
@@ -177,24 +175,20 @@ function validateForm() {
   });
 });
 
-// Form submission
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // Validate form (synchronous checks)
   if (!validateForm()) return;
 
-  // Additional async email validation
   const emailValidation = await validateEmail(emailInput.value.trim());
   if (!emailValidation.valid) {
     createErrorMessage(emailInput, emailValidation.message);
     return;
   }
 
-  // Create user object
   const newUser = {
     name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
+    email: emailInput.value.trim().toLowerCase(),
     password: passwordInput.value,
     createdAt: new Date().toISOString(),
     isActive: true,
@@ -203,16 +197,13 @@ form.addEventListener("submit", async function (e) {
   };
 
   try {
-    // Save the user to JSON Server
     const savedUser = await saveUserToJsonServer(newUser);
 
-    // Show success feedback
     const successAlert = document.createElement("div");
     successAlert.className = "alert alert-success mt-3";
     successAlert.textContent = "User Created Successfully!";
     form.parentNode.insertBefore(successAlert, form.nextSibling);
 
-    // Reset form after 2 seconds
     setTimeout(() => {
       form.reset();
       successAlert.remove();
@@ -231,10 +222,10 @@ async function isEmailRegistered(email) {
     if (!response.ok) throw new Error("Network response was not ok");
 
     const users = await response.json();
-    return users.length > 0; // Returns true if email exists
+    return users.length > 0;
   } catch (error) {
     console.error("Error checking email:", error);
-    return false; // Assume email is available if there's an error
+    return false;
   }
 }
 async function saveUserToJsonServer(newUser) {
@@ -260,8 +251,6 @@ async function saveUserToJsonServer(newUser) {
     throw error;
   }
 }
-
-// Additional CRUD operations you might need:
 
 // Get all users
 async function getUsers() {

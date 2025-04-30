@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginEmail = document.getElementById("loginEmail");
   const loginPassword = document.getElementById("loginPassword");
   const loginMessage = document.getElementById("loginMessage");
-  //handle if the user is loggedIn
+
   function checkIfUserLoggedIn() {
     let sessionUser = sessionStorage.getItem("currentUser");
     if (JSON.parse(sessionUser) != null) {
@@ -53,19 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // console.log(JSON.parse(sessionStorage.getItem("currentUser")));
   window.onload = function () {
-    // Your code here
+
     checkIfUserLoggedIn();
   };
-  // Check if elements exist
+
   if (!loginForm || !loginEmail || !loginPassword || !loginMessage) {
     console.error("Required login elements not found in DOM");
     return;
   }
 
-  // Login API URL
+
   const API_URL = "http://localhost:3000/users";
 
-  // Login function
+ 
   async function loginUser(email, password) {
     try {
       const response = await fetch(
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Incorrect password");
       }
 
-      // Return user data without password
+     
       const { ...userData } = user;
       return userData;
     } catch (error) {
@@ -91,40 +91,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Form submission
+
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
-      // Clear previous messages
+
       loginMessage.textContent = "";
       loginMessage.className = "";
 
-      // Get form values
+
       const email = loginEmail.value.trim();
       const password = loginPassword.value;
 
-      // Validate inputs
+
       if (!email || !password) {
         throw new Error("Please fill in all fields");
       }
 
-      // Attempt login
+
       const user = await loginUser(email, password);
 
-      // Login success
+
       loginMessage.textContent = `Welcome, ${user.name}!`;
       loginMessage.className = "alert alert-success";
 
-      // Store user in session
+
       sessionStorage.setItem("currentUser", JSON.stringify(user));
 
-      // Redirect after delay
+   
       setTimeout(() => {
         window.location.href = "../index.html";
       }, 1500);
     } catch (error) {
-      // Login failed
       loginMessage.textContent = error.message;
       loginMessage.className = "alert alert-danger my-2";
       loginPassword.value = ""; // Clear password field

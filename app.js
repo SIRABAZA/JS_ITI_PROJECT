@@ -153,7 +153,7 @@ function renderProducts(productsToRender) {
                       <img
                         src=${product.images[0]}
                         class="card-img-top"
-                        loading="lazy"
+                        alt=${product.title}
                       />
                     </div>
                     <div class="card-body">
@@ -169,7 +169,7 @@ function renderProducts(productsToRender) {
                         >
                       </div>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center "
                       >
                         <div>
                           <button

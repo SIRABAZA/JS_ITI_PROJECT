@@ -7,8 +7,6 @@ let productDetails;
 function checkIfUserLoggedIn() {
   let sessionUser = sessionStorage.getItem("currentUser");
   if (JSON.parse(sessionUser) != null) {
-    registerBtn.remove();
-    loginBtn.remove();
     signOutDropDown.innerHTML = `<div class="dropdown">
                 <a
                   class="btn btn-dark dropdown-toggle btn-user-dropdown"
@@ -36,12 +34,25 @@ function checkIfUserLoggedIn() {
       location.reload();
     });
   } else {
-    window.location.href = "http://127.0.0.1:5500/pages/Login.html";
-
-    signOutDropDown.innerHTML = "";
+    signOutDropDown.innerHTML = `<li class="custom-nav-item" id="loginBtn">
+              <a
+                href="./Login.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Login</a
+              >
+            </li>
+            <li class="custom-nav-item" id="registerBtn">
+              <a
+                href="./Register.html"
+                class="custom-nav-link btn btn-dark nav-btns"
+                >Register</a
+              >
+            </li>`;
   }
 }
+// console.log(JSON.parse(sessionStorage.getItem("currentUser")));
 window.onload = function () {
+  // Your code here
   checkIfUserLoggedIn();
 };
 console.log("Showing product:", productId);
@@ -227,21 +238,26 @@ function renderProduct(productToRender) {
   });
 
   if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", (e) => {
-      let theProduct = {
-        id: productToRender.id,
-        title: productToRender.title,
-        category: productToRender.category,
-        price: productToRender.price,
-        priceBeforeDiscount: productToRender.priceBeforeDiscount,
-        image: productToRender.images[0],
-        size: selectedText,
-        quantity: Number(quatity.textContent),
-      };
+    let sessionUser = sessionStorage.getItem("currentUser");
+    if (JSON.parse(sessionUser) != null) {
+      addToCartBtn.addEventListener("click", (e) => {
+        let theProduct = {
+          id: productToRender.id,
+          title: productToRender.title,
+          category: productToRender.category,
+          price: productToRender.price,
+          priceBeforeDiscount: productToRender.priceBeforeDiscount,
+          image: productToRender.images[0],
+          size: selectedText,
+          quantity: Number(quatity.textContent),
+        };
 
-      e.preventDefault();
-      addToCart(currentUser.id, theProduct);
-    });
+        e.preventDefault();
+        addToCart(currentUser.id, theProduct);
+      });
+    } else {
+      window.location.href = "http://127.0.0.1:5500/pages/Login.html";
+    }
   }
 }
 if (productId) {
